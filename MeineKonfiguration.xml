@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beispiel>
+    <wert1>${current.wert1}</wert1>
+    <wert2>${current.wert2}</wert2>
+</beispiel>

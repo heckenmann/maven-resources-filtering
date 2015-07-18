@@ -1,0 +1,60 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>de.heckenmann</groupId>
+    <artifactId>maven-resources-filtering</artifactId>
+    <packaging>jar</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>maven-resources-filtering</name>
+    <url>http://heckenmann.de</url>
+
+    <properties>
+        <!-- Hier werden erst einmal alle möglichen Werte definiert, die später in eine/mehrere (Konfigurations-) Datei(en) eingesetzt werden sollen. -->
+        <!-- Es ist sauberer, wenn man wie in diesem Beispiel alle Konstanten in der properties-Sektion eingetragen hat. So muss man sich später die Werte nicht im ganzen pom zusammensuchen. -->
+
+        <!-- Z.B. Werte für Testsystem -->
+        <test.wert1>test1</test.wert1>
+        <test.wert2>test2</test.wert2>
+
+        <!-- Z.B. Werte für Produktivsystem -->
+        <prod.wert1>prod1</prod.wert1>
+        <prod.wert2>prod2</prod.wert2>
+    </properties>
+
+    <profiles>
+        <!-- Profil für Testsystem -->
+        <profile>
+            <id>test</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <current.wert1>${test.wert1}</current.wert1>
+                <current.wert2>${test.wert2}</current.wert2>
+            </properties>
+        </profile>
+
+        <!-- Profil für Produktivsystem -->
+        <profile>
+            <id>prod</id>
+            <properties>
+                <current.wert1>${prod.wert1}</current.wert1>
+                <current.wert2>${prod.wert2}</current.wert2>
+            </properties>
+        </profile>
+    </profiles>
+
+    <build>
+        <resources>
+            <!-- Achtung! Falls man ein Webarchiv mit dem war-Plugin baut, muss man den folgenden resource-Abschnitt in die Konfiguration des Plugins verschieben. Wie das funktioniert, steht unter folgendem Link: -->
+            <!-- https://maven.apache.org/plugins/maven-war-plugin/examples/adding-filtering-webresources.html -->
+            <resource>
+                <directory>.</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.xml</include>
+                </includes>
+            </resource>
+        </resources>
+    </build>
+
+</project>
