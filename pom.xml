@@ -22,6 +22,7 @@
 
     <profiles>
         <!-- Profil für Testsystem -->
+        <!-- Ist standardmäßig aktiviert. -->
         <profile>
             <id>test</id>
             <activation>
@@ -34,6 +35,7 @@
         </profile>
 
         <!-- Profil für Produktivsystem -->
+        <!-- Wird mit dem Parameter "-P prod" aktiviert -->
         <profile>
             <id>prod</id>
             <properties>
@@ -51,6 +53,7 @@
                 <directory>.</directory>
                 <filtering>true</filtering>
                 <includes>
+                    <!-- In diesem Beispiel werden die xml-Dateien im aktuellen Ordner gefiltert. Also auch die Datei "MeineKonfiguration.xml". -->
                     <include>*.xml</include>
                 </includes>
             </resource>
