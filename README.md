@@ -1,4 +1,4 @@
-# Generieren von Konfigurationsdateien in Maven-Projekten
+# Filtern von Konfigurationsdateien in Maven-Projekten
 
 In den meisten Projekten existieren Konfigurationsdateien, die diverse Parameter für die Applikation enthalten, wie z.B. die IP der Datenbank, auf die zugegriffen werden soll. Doch was geschieht, wenn man in der Entwicklungsumgebung seine Änderungen testen möchte? Es wäre nicht klug, dazu die Produktivdatenbank zu verwenden. Aus diesem Grund haben die Entwickler oft eine lokale Datenbank installiert oder verwenden zum Testen eine zentrale Testdatenbank. Sind die Konfigurationsdateien statisch, bleibt dem Entwickler keine andere Möglichkeit, als die Parameter von Hand zu ändern, was einerseits Mehraufwand bedeutet und andererseits fehleranfällig ist. Falls es sich nur um die Adresse der Datenbank handelt, möge das noch kein Problem darstellen. Enthält das Projekt viele Dateien mit einer großen Anzahl an Parametern, wird diese Arbeit schnell unüberschaubar.
 
